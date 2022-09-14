@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Delete-Task</title>
+</head>
+<body>
+	{% block content %}
+	<form action="/delete/{{task.id}}" method=POST>
+	<input type="text" name="data" value="{{task.content}}">
+	<input type="submit" name="update">
+	</form>
+	{% endblock %}
+</body>
+</html>

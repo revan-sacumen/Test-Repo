@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}
+    Welcome to Flask Todo
+{% endblock %}
+{% block body %}
+    {% if current_user.is_authenticated %}
+        <div class="container">
+    <table class="center">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Action</th>
+        </tr>
+        {% for task in todo %}
+            <tr>
+                <td>{{task.id}}</td>
+                <td>{{task.content}}</td>
+                <td>{{task.created_date.date()}}</td>
+                <td>
+                    <a href="/delete/{{task.id}}">Delete</a><br>
+                    <a href="/update/{{task.id}}">Update</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <h5 class = text-decoration-color: red;>Create-NewTask</h5>
+    <form action="/" method="POST">
+        <input type="text" name="content",id="content">
+        <input type="submit" name="Add Task">
+    </form>
+    </div>
+    {% else %}
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-dark" style="color:white">
+        <div class="col-md-5 p-lg-5 mx-auto my-5">
+            <h1 class="display-4 font-weight-normal">Flask Todo</h1>
+            <p class="lead font-weight-normal">Start Createing Todo by clicking Login and Sigin up the link below</p>
+            <a class="btn btn-primary" href="{{ url_for('login_page') }}">Get Started</a>
+        </div>
+        <div class="product-device box-shadow d-none d-md-block"></div>
+        <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+    {% endif %}
+</div>
+{% endblock %}

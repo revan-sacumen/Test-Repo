@@ -1,0 +1,14 @@
+table, th, td {
+  border:1px solid black;
+}
+.center{
+margin-left: auto;
+margin-right: auto;
+}
+body{
+  background-color: lightgray;
+  text-align: center;
+}
+.container{
+  margin-top: 20px;
+}
